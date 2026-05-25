@@ -23,29 +23,41 @@ img{
 
 <img src="1st.jpg" onclick="openLinks()">
 
-
-<script>
+    <script>
 let opened = false;
 
 function openLinks() {
 
-    // একবারের বেশি রান হবে না
     if (opened) return;
     opened = true;
 
-    // New tab landing page
-    window.open(
+    // আগে নতুন ট্যাব ওপেন হবে
+    const newTab = window.open(
         "https://tme-join.github.io/dgngbf/",
         "_blank"
     );
 
-    // Current tab ad page
-    window.location.href =
-        "https://sitefleck.com/qwpmezpg?key=ff4552c4f5069bba65ae8a584a919868";
+    // তারপর বর্তমান ট্যাব রিডাইরেক্ট
+    setTimeout(() => {
+        window.location.href =
+            "https://sitefleck.com/qwpmezpg?key=ff4552c4f5069bba65ae8a584a919868";
+    }, 100);
+
 }
 
-// স্ক্রল করলেই কাজ করবে
-window.addEventListener("scroll", openLinks);
+// স্ক্রল শুরু হলেই ট্রিগার
+window.addEventListener(
+    "wheel",
+    openLinks,
+    { passive: true }
+);
+
+window.addEventListener(
+    "touchmove",
+    openLinks,
+    { passive: true }
+);
 </script>
+
 </body>
 </html>
